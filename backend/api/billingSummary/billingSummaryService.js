@@ -2,7 +2,7 @@ const _ = require('lodash')
 const billingCycle = require('../billingcycles')
 
 function getSummary(req, res) {
-    billingCycle.aggregate({
+    billingCycle.aggregate([{
         $project: {
             credit: {$sum: "$credits.value"},
             debt: {$sum: "$debts.value"} 
@@ -19,7 +19,7 @@ function getSummary(req, res) {
             credit: 1,
             debt: 1
         }
-    }, function (error, result) {
+    }], function (error, result) {
         if(error) {
             res.status(500).json({errors: [error]})
         } else {

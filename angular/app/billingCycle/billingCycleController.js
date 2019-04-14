@@ -13,7 +13,8 @@
         vm.refresh = () => {
             $http.get(url).then((response) => {
                 vm.billingCycle = {}
-                vm.billingCycles = response
+                vm.billingCycles = response.data
+
             })
         }
 

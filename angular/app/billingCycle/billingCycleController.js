@@ -29,6 +29,16 @@
             })
         }
 
+        vm.showTabUpdate = (billingCycle) => {
+            vm.billingCycle = billingCycle
+            tabs.show(vm, {tabUpdate: true})
+        }
+
+        vm.showTabDelete = (billingCycle) => {
+            vm.billingCycle = billingCycle
+            tabs.show(vm, {tabDelete: true})
+        }
+
         vm.refresh()
     }
 })()

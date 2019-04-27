@@ -81,7 +81,7 @@
             vm.billingCycle.debts.splice(index + 1, 0, {name, value, status})
         }
 
-        vm.deleteCredit = (index) => {
+        vm.deleteDebt = (index) => {
             if(vm.billingCycle.debts.length > 1) {
                 vm.billingCycle.debts.splice(index, 1)
             }

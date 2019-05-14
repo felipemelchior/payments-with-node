@@ -31,11 +31,13 @@
 
         vm.showTabUpdate = (billingCycle) => {
             vm.billingCycle = billingCycle
+            vm.calculateValues()
             tabs.show(vm, {tabUpdate: true})
         }
 
         vm.showTabDelete = (billingCycle) => {
             vm.billingCycle = billingCycle
+            vm.calculateValues()
             tabs.show(vm, {tabDelete: true})
         }
 

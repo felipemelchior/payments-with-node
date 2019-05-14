@@ -1,18 +1,20 @@
 (function (){
     angular.module('primeiroApp').controller('billingCycleCtrl', [
         '$http',
+        '$location',
         'messages',
         'tabs',
     
         BillingCycleController 
     ])
 
-    function BillingCycleController($http, messages, tabs) {
+    function BillingCycleController($http, $location, messages, tabs) {
         const vm = this
         const url = 'http://localhost:3003/api/billingCycles'
 
         vm.refresh = () => {
-            $http.get(url).then((response) => {
+            const page = parseInt($location.search().page) || 1
+            $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then((response) => {
                 vm.billingCycle = {credits: [{}], debts: [{}]}
                 vm.billingCycles = response.data
                 vm.calculateValues()

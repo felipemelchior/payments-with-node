@@ -13,7 +13,7 @@
                 </td>
 
                 <td>
-                    <input ng-model="credit.value" class="form-control" placeholder="Informe o Valor" ng-readonly="bcCtrl.tabDelete" type="number" />
+                    <input ng-model="credit.value" class="form-control" placeholder="Informe o Valor" ng-change="bcCtrl.calculateValues()" ng-readonly="bcCtrl.tabDelete" type="number" />
                 </td>
 
                 <td class='table-actions'>
